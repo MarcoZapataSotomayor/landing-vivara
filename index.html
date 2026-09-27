@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Vívara — Agua mineral natural de manantial. Pureza que se siente, frescura que se vive.">
+  <title>Vívara · Agua Mineral Natural</title>
+  <!-- Favicon / Tab Icon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <meta name="theme-color" content="#0d2b45">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       NAVBAR
+       ============================================================ -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Navegación principal">
+    <div class="navbar__inner">
+      <a href="#" class="navbar__logo" aria-label="Vívara — Inicio">
+        <img id="logo" src="assets/logo-clean.png" alt="Vívara logo" width="120" height="44">
+      </a>
+
+      <ul class="navbar__links" id="navLinks" role="list">
+        <li><a href="#origen" class="navbar__link">Origen</a></li>
+        <li><a href="#productos" class="navbar__link">Productos</a></li>
+        <li><a href="#logistica" class="navbar__link">Distribución</a></li>
+        <li><a href="#contacto" class="navbar__link">Contacto</a></li>
+        <li class="navbar__cta--mobile"><a
+            href="https://wa.me/51983325632?text=Hola%2C%20quisiera%20hacer%20un%20pedido" target="_blank"
+            rel="noopener noreferrer" class="navbar__cta">Pedir ahora</a></li>
+      </ul>
+
+      <a href="https://wa.me/51983325632?text=Hola%2C%20quisiera%20hacer%20un%20pedido" target="_blank"
+        rel="noopener noreferrer" class="navbar__cta navbar__cta--desktop">Pedir ahora</a>
+
+      <button class="navbar__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false"
+        aria-controls="navLinks">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO — Cielo-inspired: 4 rotating videos + centered branding
+       ============================================================ -->
+  <section class="hero" id="hero">
+    <div class="hero__media">
+      <video class="hero__video hero__video--active" src="assets/video hero 1.mp4" autoplay muted playsinline
+        preload="auto"></video>
+      <video class="hero__video" src="assets/video hero 2.mp4" muted playsinline preload="metadata"></video>
+      <video class="hero__video" src="assets/video hero 3.mp4" muted playsinline preload="metadata"></video>
+      <video class="hero__video" src="assets/video hero 4.mp4" muted playsinline preload="metadata"></video>
+      <!-- Animated gradient fallback shown if videos fail -->
+      <div class="hero__gradient-fallback" aria-hidden="true"></div>
+    </div>
+
+    <!-- Overlay layers for depth -->
+    <div class="hero__overlay"></div>
+    <div class="hero__vignette" aria-hidden="true"></div>
+
+    <!-- Centered branding like Cielo -->
+    <div class="hero__brand">
+      <img src="assets/logo-clean.png" alt="Vívara" class="hero__logo" width="340" height="230">
+      <span class="hero__tagline">Pureza que se siente</span>
+
+      <!-- 4 slide indicators for the 4 hero videos -->
+      <div class="hero__indicators" aria-label="Controles de videos del hero">
+        <button class="hero__dot hero__dot--active" data-index="0" aria-label="Video 1"></button>
+        <button class="hero__dot" data-index="1" aria-label="Video 2"></button>
+        <button class="hero__dot" data-index="2" aria-label="Video 3"></button>
+        <button class="hero__dot" data-index="3" aria-label="Video 4"></button>
+      </div>
+    </div>
+
+    <!-- Scroll cue -->
+    <div class="hero__scroll" aria-hidden="true">
+      <span class="hero__scroll-text">Scroll</span>
+      <span class="hero__scroll-line"></span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PRODUCTOS — Showcase Dinámico Pop-Out (Inspirado en Cielo)
+       ============================================================ -->
+  <section class="section section--products-showcase" id="productos">
+    <div class="container">
+      <header class="section__header reveal">
+        <p class="section__overline">Productos</p>
+        <h2 class="section__title">Pureza en cada formato</h2>
+        <p class="section__subtitle">
+          Cada presentación está diseñada con un propósito: acompañar tu hidratación
+          con agua 100% pura, alcalina y libre de BPA.
+        </p>
+      </header>
+
+      <div class="product-showcase reveal">
+        <!-- Navigation Arrows -->
+        <button class="product-showcase__nav product-showcase__nav--prev" id="productPrev"
+          aria-label="Producto anterior">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button class="product-showcase__nav product-showcase__nav--next" id="productNext"
+          aria-label="Siguiente producto">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+
+        <!-- Track / Slides wrapper -->
+        <div class="product-showcase__track" id="productTrack">
+
+          <!-- SLIDE 1: BOTELLA PERSONAL 625ML -->
+          <div class="product-slide product-slide--1 product-slide--active" data-index="0">
+            <div class="product-slide__card-bg">
+              <!-- Left: Botanical / Cloud Purity World -->
+              <div class="product-slide__visual-side">
+                <div class="motif-botanical">
+                  <svg class="motif-svg" viewBox="0 0 400 400" fill="none">
+                    <circle cx="200" cy="200" r="170" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 6"
+                      opacity="0.35" />
+                    <circle cx="200" cy="200" r="130" stroke="currentColor" stroke-width="1.5" opacity="0.25" />
+                    <circle cx="200" cy="200" r="90" stroke="currentColor" stroke-width="1" stroke-dasharray="3 4"
+                      opacity="0.4" />
+                    <path d="M70,280 C60,230 110,210 130,220 C140,240 120,290 70,280 Z" fill="currentColor"
+                      opacity="0.18" />
+                    <path d="M120,330 C130,290 180,285 190,305 C185,325 150,350 120,330 Z" fill="currentColor"
+                      opacity="0.15" />
+                    <path d="M50,150 C70,120 110,135 110,155 C95,175 60,170 50,150 Z" fill="currentColor"
+                      opacity="0.18" />
+                  </svg>
+                  <div class="floating-bubble bubble-1"></div>
+                  <div class="floating-bubble bubble-2"></div>
+                  <div class="floating-bubble bubble-3"></div>
+                  <div class="floating-cloud cloud-1"></div>
+                  <div class="floating-cloud cloud-2"></div>
+                </div>
+              </div>
+
+              <!-- Right: Content Side Background -->
+              <div class="product-slide__content-side"></div>
+            </div>
+
+            <!-- Center Pop-out Product Bottle -->
+            <div class="product-slide__product">
+              <div class="product-slide__image-wrap" data-tilt>
+                <img src="assets/botella 625 ml.png" alt="Botella Personal Vívara 625ml" class="product-pop-img">
+                <div class="product-slide__ground-shadow"></div>
+              </div>
+            </div>
+
+            <!-- Right: Editorial Content -->
+            <div class="product-slide__content">
+              <div class="product-slide__badge">
+                <span class="badge-brand">VÍVARA</span>
+                <span class="badge-type">ALCALINA · IONIZADA</span>
+              </div>
+              <div class="product-slide__ph">
+                <span class="ph-prefix">pH</span>
+                <span class="ph-number">7.8</span>
+              </div>
+              <h3 class="product-slide__name">Botella Personal 625 ml</h3>
+              <p class="product-slide__desc">
+                Toda la pureza y frescura del agua en su estado más vivo, concebida para acompañar tu ritmo diario.
+                Equilibrio mineral óptimo, hidratación celular inmediata y envase 100% reciclable libre de BPA.
+              </p>
+              <div class="product-slide__specs-row">
+                <div class="slide-spec">
+                  <span class="slide-spec__val">625 ml</span>
+                  <span class="slide-spec__lbl">Volumen</span>
+                </div>
+                <div class="slide-spec">
+                  <span class="slide-spec__val">7.8</span>
+                  <span class="slide-spec__lbl">pH Alcalino</span>
+                </div>
+                <div class="slide-spec">
+                  <span class="slide-spec__val">PET 1</span>
+                  <span class="slide-spec__lbl">100% Reciclable</span>
+                </div>
+              </div>
+              <a href="https://wa.me/51983325632?text=Hola%2C%20quisiera%20hacer%20un%20pedido%20de%20Botella%20Personal%20625ml"
+                target="_blank" rel="noopener noreferrer" class="product-slide__cta">
+                <span>Pedir este formato</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- SLIDE 2: BIDÓN HOGAR 11L -->
+          <div class="product-slide product-slide--2" data-index="1">
+            <div class="product-slide__card-bg">
+              <!-- Left: Geometric Crystalline & Ripple Refraction -->
+              <div class="product-slide__visual-side">
+                <div class="motif-geometric">
+                  <div class="geo-triangle geo-triangle-1"></div>
+                  <div class="geo-triangle geo-triangle-2"></div>
+                  <div class="geo-triangle geo-triangle-3"></div>
+                  <div class="geo-triangle geo-triangle-4"></div>
+                  <div class="geo-ripple geo-ripple-1"></div>
+                  <div class="geo-ripple geo-ripple-2"></div>
+                  <svg class="geo-crystals" viewBox="0 0 300 300" fill="none">
+                    <polygon points="150,20 230,120 150,190 70,120" stroke="currentColor" stroke-width="1.5"
+                      opacity="0.3" />
+                    <polygon points="150,190 230,270 70,270" stroke="currentColor" stroke-width="1" opacity="0.2" />
+                    <line x1="70" y1="120" x2="230" y2="120" stroke="currentColor" stroke-width="1"
+                      stroke-dasharray="3 3" opacity="0.35" />
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Right: Content Side Background -->
+              <div class="product-slide__content-side"></div>
+            </div>
+
+            <!-- Center Pop-out Product Bidon -->
+            <div class="product-slide__product">
+              <div class="product-slide__image-wrap" data-tilt>
+                <img src="assets/bidón 11lt.png" alt="Bidón Vívara 11 Litros" class="product-pop-img">
+                <div class="product-slide__ground-shadow"></div>
+              </div>
+            </div>
+
+            <!-- Right: Editorial Content -->
+            <div class="product-slide__content">
+              <div class="product-slide__badge">
+                <span class="badge-brand">VÍVARA</span>
+                <span class="badge-type">HOGAR & BIENESTAR</span>
+              </div>
+              <div class="product-slide__ph">
+                <span class="ph-prefix">pH</span>
+                <span class="ph-number">7.8</span>
+              </div>
+              <h3 class="product-slide__name">Bidón Hogar 11 Litros</h3>
+              <p class="product-slide__desc">
+                La fuente natural en el corazón de tu hogar. Su tamaño inteligente y asa ergonómica reforzada
+                facilitan el cambio sin esfuerzo, garantizando frescura y pureza continua para toda la familia.
+              </p>
+              <div class="product-slide__specs-row">
+                <div class="slide-spec">
+                  <span class="slide-spec__val">11 L</span>
+                  <span class="slide-spec__lbl">Capacidad</span>
+                </div>
+                <div class="slide-spec">
+                  <span class="slide-spec__val">ErgoGrip</span>
+                  <span class="slide-spec__lbl">Asa Anatómica</span>
+                </div>
+                <div class="slide-spec">
+                  <span class="slide-spec__val">Universal</span>
+                  <span class="slide-spec__lbl">Dispensadores</span>
+                </div>
+              </div>
+              <a href="https://wa.me/51983325632?text=Hola%2C%20quisiera%20hacer%20un%20pedido%20de%20Bid%C3%B3n%20Hogar%2011L"
+                target="_blank" rel="noopener noreferrer" class="product-slide__cta">
+                <span>Pedir este formato</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- SLIDE 3: BIDÓN PREMIUM 20L -->
+          <div class="product-slide product-slide--3" data-index="2">
+            <div class="product-slide__card-bg">
+              <!-- Left: Alpine Mountain Panorama & Ice Luxury -->
+              <div class="product-slide__visual-side">
+                <div class="motif-alpine">
+                  <div class="alpine-peak alpine-peak-1"></div>
+                  <div class="alpine-peak alpine-peak-2"></div>
+                  <div class="alpine-mist"></div>
+                  <div class="ice-shard shard-1"></div>
+                  <div class="ice-shard shard-2"></div>
+                  <div class="ice-shard shard-3"></div>
+                </div>
+              </div>
+
+              <!-- Right: Content Side Background -->
+              <div class="product-slide__content-side"></div>
+            </div>
+
+            <!-- Center Pop-out Product Bidon -->
+            <div class="product-slide__product">
+              <div class="product-slide__image-wrap" data-tilt>
+                <img src="assets/bidón 12lt.png" alt="Bidón Premium Vívara 20L" class="product-pop-img">
+                <div class="product-slide__ground-shadow"></div>
+              </div>
+            </div>
+
+            <!-- Right: Editorial Content -->
+            <div class="product-slide__content">
+              <div class="product-slide__badge">
+                <span class="badge-brand">VÍVARA</span>
+                <span class="badge-type">MÁXIMA CAPACIDAD</span>
+              </div>
+              <div class="product-slide__ph">
+                <span class="ph-prefix">pH</span>
+                <span class="ph-number">7.8</span>
+              </div>
+              <h3 class="product-slide__name">Bidón Premium con Válvula</h3>
+              <p class="product-slide__desc">
+                Rendimiento superior para oficinas, empresas y hogares con alto consumo.
+                Envase retornable ultra-resistente con válvula de dosificación hermética que protege la esterilidad del
+                agua sorbo a sorbo.
+              </p>
+              <div class="product-slide__specs-row">
+                <div class="slide-spec">
+                  <span class="slide-spec__val">20L</span>
+                  <span class="slide-spec__lbl">Formato Máximo</span>
+                </div>
+                <div class="slide-spec">
+                  <span class="slide-spec__val">Válvula</span>
+                  <span class="slide-spec__lbl">Dispensador Push</span>
+                </div>
+                <div class="slide-spec">
+                  <span class="slide-spec__val">Sanitario</span>
+                  <span class="slide-spec__lbl">Retornable</span>
+                </div>
+              </div>
+              <a href="https://wa.me/51983325632?text=Hola%2C%20quisiera%20hacer%20un%20pedido%20de%20Bid%C3%B3n%20Premium"
+                target="_blank" rel="noopener noreferrer" class="product-slide__cta">
+                <span>Pedir este formato</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Pagination Dots -->
+        <div class="product-showcase__dots" id="productDots" aria-label="Seleccionar producto">
+          <button class="product-dot product-dot--active" data-index="0" aria-label="Botella Personal 625ml"></button>
+          <button class="product-dot" data-index="1" aria-label="Bidón Hogar 11L"></button>
+          <button class="product-dot" data-index="2" aria-label="Bidón Premium 12L/20L"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       BENTO GRID — Logística & Frescura Diaria
+       ============================================================ -->
+  <section class="section section--frost" id="logistica">
+    <div class="container">
+      <header class="section__header reveal">
+        <p class="section__overline">Distribución</p>
+        <h2 class="section__title">Logística & Frescura Diaria</h2>
+        <p class="section__subtitle">
+          Desde nuestro centro de distribución hasta tu puerta. Cada bidón viaja
+          con cuidado para preservar la pureza del manantial.
+        </p>
+      </header>
+
+      <div class="bento__grid reveal-stagger">
+
+        <!-- Video: Carga en camión (wide) -->
+        <div class="bento__item bento__item--wide bento__item--video reveal">
+          <video src="assets/video carga en camión.mp4" autoplay muted loop playsinline loading="lazy"
+            aria-label="Proceso de carga de bidones en camión de reparto"></video>
+          <span class="bento__video-label">Despacho diario</span>
+        </div>
+
+        <!-- Info card (narrow) -->
+        <div class="bento__item bento__item--narrow bento__item--info reveal">
+          <span class="bento__label">Compromiso</span>
+          <h3 class="bento__title">Del manantial a tu puerta</h3>
+          <p class="bento__desc">
+            Nuestra flota de reparto garantiza entregas frescas cada día.
+            Cadena de frío y trazabilidad completa en cada bidón.
+          </p>
+        </div>
+
+        <!-- Info card 2 (narrow) -->
+        <div class="bento__item bento__item--narrow bento__item--info reveal">
+          <span class="bento__label">Presencia</span>
+          <h3 class="bento__title">En tiendas y hogares</h3>
+          <p class="bento__desc">
+            Disponible en los principales puntos de venta y con servicio
+            de delivery directo para pedidos recurrentes.
+          </p>
+        </div>
+
+        <!-- Video: Tienda (wide) -->
+        <div class="bento__item bento__item--wide bento__item--video reveal">
+          <video src="assets/video bidones tienda.mp4" autoplay muted loop playsinline loading="lazy"
+            aria-label="Bidones Vívara exhibidos en punto de venta"></video>
+          <span class="bento__video-label">Puntos de venta</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       BANNER PROMOCIONAL — Banner 1 Exclusivo con Pedido WhatsApp
+       ============================================================ -->
+  <section class="section banner-section" id="promocion">
+    <div class="container">
+      <header class="section__header reveal">
+        <p class="section__overline">Información</p>
+        <h2 class="section__title">¿Quieres saber más sobre Vívara?</h2>
+      </header>
+
+      <div class="banner-single reveal">
+        <a href="https://wa.me/51983325632?text=Hola%2C%20quisiera%20hacer%20un%20pedido" target="_blank"
+          rel="noopener noreferrer" class="banner-single__link" aria-label="Pedir por WhatsApp al +51 983 325 632">
+          <img src="assets/Banner promocional.jpg" alt="Banner promocional Vívara - Pedidos al WhatsApp"
+            class="banner-single__image" loading="lazy">
+          <div class="banner-single__action">
+            <span class="banner-single__btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.227-.557-1.748-.727-2.883-2.508-2.97-2.624-.087-.116-.708-.941-.708-1.794 0-.853.447-1.273.606-1.446.16-.173.348-.217.464-.217.116 0 .232.002.333.007.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z" />
+              </svg>
+              Hacer pedido por WhatsApp
+            </span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA FINAL
+       ============================================================ -->
+  <section class="section section--dark cta-final" id="cta">
+    <div class="container">
+      <div class="cta-final__inner reveal">
+        <p class="cta-final__overline">¿Listo para la pureza?</p>
+        <h2 class="cta-final__title">Lleva Vívara a tu hogar</h2>
+        <p class="cta-final__desc">
+          Haz tu pedido ahora y recibe agua mineral natural directamente
+          en tu puerta. Sin compromisos, sin procesos artificiales.
+        </p>
+        <a href="https://wa.me/51983325632?text=Hola%2C%20quisiera%20hacer%20un%20pedido" target="_blank"
+          rel="noopener noreferrer" class="btn-primary btn-primary--glow">
+          Pedir ahora
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer" id="contacto">
+    <div class="container">
+      <div class="footer__inner">
+
+        <div class="footer__brand">
+          <p class="footer__brand-name">Vívara</p>
+          <p class="footer__brand-desc">
+            Agua mineral osmotizada y ozonizada. Pureza que se siente, frescura que se vive.
+          </p>
+        </div>
+
+        <div class="footer__col">
+          <h4 class="footer__col-title">Productos</h4>
+          <a href="#productos" class="footer__link">Botella 625ml</a>
+          <a href="#productos" class="footer__link">Bidón 11L</a>
+          <a href="#productos" class="footer__link">Bidón 20L</a>
+        </div>
+
+        <div class="footer__col">
+          <h4 class="footer__col-title">Empresa</h4>
+          <a href="#origen" class="footer__link">Nuestro origen</a>
+          <a href="#logistica" class="footer__link">Distribución</a>
+          <a href="https://wa.me/51983325632?text=Hola%2C%20quisiera%20hacer%20un%20pedido" target="_blank"
+            rel="noopener noreferrer" class="footer__link">Pedidos WhatsApp (+51 983 325 632)</a>
+        </div>
+
+        <div class="footer__col">
+          <h4 class="footer__col-title">Legal</h4>
+          <a href="#" class="footer__link">Términos de uso</a>
+          <a href="#" class="footer__link">Privacidad</a>
+          <a href="#" class="footer__link">Cookies</a>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2026 Vívara. Todos los derechos reservados.</p>
+        <p class="footer__copy">Hecho con pureza</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       FLOATING WHATSAPP BUTTON
+       ============================================================ -->
+  <a href="https://wa.me/51983325632?text=Hola%2C%20quisiera%20hacer%20un%20pedido" target="_blank"
+    rel="noopener noreferrer" class="whatsapp-float" aria-label="Contactar y pedir por WhatsApp (+51 983 325 632)">
+    <svg class="whatsapp-float__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path
+        d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.227-.557-1.748-.727-2.883-2.508-2.97-2.624-.087-.116-.708-.941-.708-1.794 0-.853.447-1.273.606-1.446.16-.173.348-.217.464-.217.116 0 .232.002.333.007.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z" />
+    </svg>
+    <span class="whatsapp-float__tooltip">¿Hacer un pedido? Escríbenos</span>
+  </a>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
