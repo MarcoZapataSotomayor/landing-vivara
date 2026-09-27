@@ -1,0 +1,451 @@
+/* ============================================================
+   VÍVARA — Origen Page Styles
+   Builds on top of style.css base tokens & components
+   ============================================================ */
+
+/* ============================================================
+   1. ORIGIN HERO — Typographic splash
+   ============================================================ */
+.origin-hero {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at 50% 20%, #0f2d4a 0%, #071526 80%);
+  padding: calc(var(--navbar-height) + var(--space-8)) var(--space-5) var(--space-8);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle animated grain */
+.origin-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* Soft radial glow */
+.origin-hero::after {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  width: 700px;
+  height: 700px;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, hsla(200, 60%, 50%, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.origin-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  text-align: center;
+}
+
+.origin-hero__overline {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-glacier);
+  margin-bottom: var(--space-4);
+}
+
+.origin-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--color-white);
+  margin-bottom: var(--space-5);
+}
+
+.origin-hero__title em {
+  font-style: italic;
+  color: #72c1f0;
+}
+
+.origin-hero__divider {
+  width: 56px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-alpine), transparent);
+  margin: 0 auto;
+}
+
+/* ============================================================
+   2. ORIGIN SECTIONS — Base layout
+   ============================================================ */
+.origin-section {
+  padding: var(--space-9) 0;
+}
+
+.origin-section--dark {
+  background: #071526;
+  color: var(--color-white);
+}
+
+.origin-section--frost {
+  background: var(--color-ice);
+}
+
+/* ============================================================
+   3. ORIGIN STORY — Brand narrative + logo
+   ============================================================ */
+.origin-story {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: var(--space-8);
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.origin-story__lead {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: var(--color-abyss);
+  margin-bottom: var(--space-4);
+}
+
+.origin-story__body {
+  font-size: var(--text-body);
+  line-height: 1.8;
+  color: var(--color-stone);
+  margin-bottom: var(--space-3);
+}
+
+.origin-story__logo-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f0f5f9 0%, #e4edf4 100%);
+  border-radius: calc(var(--border-radius) * 3);
+  padding: var(--space-7);
+  border: 1px solid hsla(205, 40%, 88%, 0.6);
+  box-shadow:
+    0 8px 32px hsla(210, 30%, 15%, 0.06),
+    0 1px 4px hsla(210, 30%, 15%, 0.03);
+}
+
+.origin-story__logo-img {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ============================================================
+   4. PILLARS — 4-column principle grid
+   ============================================================ */
+.origin-pillars__header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.origin-pillars__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--color-white);
+}
+
+.origin-pillars__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+}
+
+.origin-pillar {
+  padding: var(--space-5) var(--space-4);
+  border-radius: calc(var(--border-radius) * 1.5);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(4px);
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.origin-pillar:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+  transform: translateY(-4px);
+}
+
+.origin-pillar__number {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: #72c1f0;
+  margin-bottom: var(--space-4);
+}
+
+.origin-pillar__name {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--color-white);
+  margin-bottom: var(--space-3);
+}
+
+.origin-pillar__desc {
+  font-size: var(--text-small);
+  line-height: 1.7;
+  color: var(--color-glacier);
+}
+
+/* ============================================================
+   5. PROCESS TIMELINE — 5-step purification
+   ============================================================ */
+.origin-process__timeline {
+  max-width: 720px;
+  margin: var(--space-7) auto 0;
+  position: relative;
+}
+
+/* Vertical line connector */
+.origin-process__timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 27px;
+  bottom: 0;
+  width: 1.5px;
+  background: linear-gradient(
+    180deg,
+    var(--color-glacier) 0%,
+    var(--color-alpine) 50%,
+    var(--color-glacier) 100%
+  );
+  opacity: 0.3;
+}
+
+.origin-process__step {
+  display: flex;
+  gap: var(--space-5);
+  padding-bottom: var(--space-6);
+  position: relative;
+}
+
+.origin-process__step:last-child {
+  padding-bottom: 0;
+}
+
+.origin-process__icon {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: var(--color-ice);
+  border: 1px solid hsla(205, 40%, 88%, 0.6);
+  color: var(--color-deep);
+  position: relative;
+  z-index: 1;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.origin-process__step:hover .origin-process__icon {
+  background: hsla(200, 45%, 55%, 0.12);
+  border-color: var(--color-alpine);
+}
+
+.origin-process__icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.origin-process__content {
+  flex: 1;
+  padding-top: var(--space-1);
+}
+
+.origin-process__num {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--color-deep);
+  display: block;
+  margin-bottom: var(--space-1);
+}
+
+.origin-process__title {
+  font-family: var(--font-display);
+  font-size: var(--text-h4);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--color-abyss);
+  margin-bottom: var(--space-2);
+}
+
+.origin-process__desc {
+  font-size: var(--text-small);
+  line-height: 1.7;
+  color: var(--color-stone);
+  max-width: 520px;
+}
+
+/* ============================================================
+   6. REACH — Gamarra presence CTA
+   ============================================================ */
+.origin-reach {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-7);
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.origin-reach__text {
+  flex: 1;
+}
+
+.origin-reach__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--color-abyss);
+  margin-bottom: var(--space-4);
+}
+
+.origin-reach__desc {
+  font-size: var(--text-body);
+  line-height: 1.8;
+  color: var(--color-stone);
+  margin-bottom: var(--space-5);
+  max-width: 560px;
+}
+
+.origin-reach__stats {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.origin-reach__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.origin-reach__stat-number {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--color-abyss);
+}
+
+.origin-reach__stat-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-deep);
+}
+
+.origin-reach__cta {
+  flex-shrink: 0;
+}
+
+/* Active link indicator */
+.navbar__link--active {
+  color: var(--color-deep) !important;
+}
+
+.navbar__link--active::after {
+  width: 100% !important;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  .origin-pillars__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .origin-hero {
+    min-height: 55vh;
+    padding-top: calc(var(--navbar-height) + var(--space-6));
+  }
+
+  .origin-story {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .origin-story__visual {
+    order: -1;
+  }
+
+  .origin-story__logo-frame {
+    padding: var(--space-5);
+  }
+
+  .origin-story__logo-img {
+    max-width: 200px;
+  }
+
+  .origin-pillars__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .origin-process__timeline::before {
+    left: 23px;
+  }
+
+  .origin-process__icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .origin-process__icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .origin-reach {
+    flex-direction: column;
+    text-align: center;
+    align-items: stretch;
+  }
+
+  .origin-reach__desc {
+    max-width: none;
+  }
+
+  .origin-reach__stats {
+    justify-content: center;
+  }
+
+  .origin-reach__cta {
+    text-align: center;
+  }
+}

@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Vívara — Agua mineral natural de manantial. Pureza que se siente, frescura que se vive.">
-  <title>Vívara · Agua Mineral Natural</title>
+    content="Vívara — Agua purificada de mesa. Osmotizada, ozonizada y alcalina. Pureza que se siente, frescura que se vive.">
+  <title>Vívara · Agua Purificada de Mesa</title>
   <!-- Favicon / Tab Icon -->
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
@@ -27,18 +27,27 @@
   <nav class="navbar" id="navbar" role="navigation" aria-label="Navegación principal">
     <div class="navbar__inner">
       <a href="#" class="navbar__logo" aria-label="Vívara — Inicio">
-        <img id="logo" src="assets/logo-clean.png" alt="Vívara logo" width="120" height="44">
+        <img id="logo" src="assets/logo-clean.png" alt="Vívara - Agua Purificada de Mesa" width="120" height="44">
       </a>
 
-      <ul class="navbar__links" id="navLinks" role="list">
-        <li><a href="#origen" class="navbar__link">Origen</a></li>
-        <li><a href="#productos" class="navbar__link">Productos</a></li>
-        <li><a href="#logistica" class="navbar__link">Distribución</a></li>
-        <li><a href="#contacto" class="navbar__link">Contacto</a></li>
-        <li class="navbar__cta--mobile"><a
-            href="https://wa.me/51983325632?text=Hola%2C%20quisiera%20hacer%20un%20pedido" target="_blank"
-            rel="noopener noreferrer" class="navbar__cta">Pedir ahora</a></li>
-      </ul>
+      <div class="navbar__links" id="navLinks" role="dialog" aria-modal="true" aria-label="Menú principal">
+        <ul class="navbar__menu" role="list">
+          <li style="--item-index: 0"><a href="origen.html" class="navbar__link"><span class="navbar__link-num">01</span><span>Origen</span></a></li>
+          <li style="--item-index: 1"><a href="#productos" class="navbar__link"><span class="navbar__link-num">02</span><span>Productos</span></a></li>
+          <li style="--item-index: 2"><a href="#logistica" class="navbar__link"><span class="navbar__link-num">03</span><span>Distribución</span></a></li>
+          <li style="--item-index: 3"><a href="#contacto" class="navbar__link"><span class="navbar__link-num">04</span><span>Contacto</span></a></li>
+        </ul>
+        <div class="navbar__mobile-footer">
+          <a href="https://wa.me/51983325632?text=Hola%2C%20quisiera%20hacer%20un%20pedido" target="_blank"
+            rel="noopener noreferrer" class="navbar__cta navbar__cta--mobile">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.227-.557-1.748-.727-2.883-2.508-2.97-2.624-.087-.116-.708-.941-.708-1.794 0-.853.447-1.273.606-1.446.16-.173.348-.217.464-.217.116 0 .232.002.333.007.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/>
+            </svg>
+            <span>Pedir por WhatsApp</span>
+          </a>
+          <p class="navbar__mobile-info">+51 983 325 632 · Pedidos y Atención</p>
+        </div>
+      </div>
 
       <a href="https://wa.me/51983325632?text=Hola%2C%20quisiera%20hacer%20un%20pedido" target="_blank"
         rel="noopener noreferrer" class="navbar__cta navbar__cta--desktop">Pedir ahora</a>
@@ -56,7 +65,7 @@
        HERO — Cielo-inspired: 4 rotating videos + centered branding
        ============================================================ -->
   <section class="hero" id="hero">
-    <div class="hero__media">
+    <div class="hero__media" aria-hidden="true">
       <video class="hero__video hero__video--active" src="assets/video hero 1.mp4" autoplay muted playsinline
         preload="auto"></video>
       <video class="hero__video" src="assets/video hero 2.mp4" muted playsinline preload="metadata"></video>
@@ -72,7 +81,7 @@
 
     <!-- Centered branding like Cielo -->
     <div class="hero__brand">
-      <img src="assets/logo-clean.png" alt="Vívara" class="hero__logo" width="340" height="230">
+      <img src="assets/logo-clean.png" alt="Vívara Agua Purificada - Pureza que se siente" class="hero__logo" width="340" height="230">
       <span class="hero__tagline">Pureza que se siente</span>
 
       <!-- 4 slide indicators for the 4 hero videos -->
@@ -159,7 +168,7 @@
             <!-- Center Pop-out Product Bottle -->
             <div class="product-slide__product">
               <div class="product-slide__image-wrap" data-tilt>
-                <img src="assets/botella 625 ml.png" alt="Botella Personal Vívara 625ml" class="product-pop-img">
+                <img src="assets/botella 625 ml.png" alt="Botella personal Vívara de 625 ml de agua de mesa purificada y alcalina" class="product-pop-img">
                 <div class="product-slide__ground-shadow"></div>
               </div>
             </div>
@@ -177,7 +186,7 @@
               <h3 class="product-slide__name">Botella Personal 625 ml</h3>
               <p class="product-slide__desc">
                 Toda la pureza y frescura del agua en su estado más vivo, concebida para acompañar tu ritmo diario.
-                Equilibrio mineral óptimo, hidratación celular inmediata y envase 100% reciclable libre de BPA.
+                Equilibrio alcalino óptimo, hidratación inmediata y envase 100% reciclable libre de BPA.
               </p>
               <div class="product-slide__specs-row">
                 <div class="slide-spec">
@@ -232,7 +241,7 @@
             <!-- Center Pop-out Product Bidon -->
             <div class="product-slide__product">
               <div class="product-slide__image-wrap" data-tilt>
-                <img src="assets/bidón 11lt.png" alt="Bidón Vívara 11 Litros" class="product-pop-img">
+                <img src="assets/bidón 11lt.png" alt="Bidón dispensador Vívara de 11 litros con caño hermético para mesa" class="product-pop-img">
                 <div class="product-slide__ground-shadow"></div>
               </div>
             </div>
@@ -298,7 +307,7 @@
             <!-- Center Pop-out Product Bidon -->
             <div class="product-slide__product">
               <div class="product-slide__image-wrap" data-tilt>
-                <img src="assets/bidón 12lt.png" alt="Bidón Premium Vívara 20L" class="product-pop-img">
+                <img src="assets/bidón 12lt.png" alt="Bidón retornable Vívara de 20 litros purificado por ósmosis inversa" class="product-pop-img">
                 <div class="product-slide__ground-shadow"></div>
               </div>
             </div>
@@ -364,8 +373,8 @@
         <p class="section__overline">Distribución</p>
         <h2 class="section__title">Logística & Frescura Diaria</h2>
         <p class="section__subtitle">
-          Desde nuestro centro de distribución hasta tu puerta. Cada bidón viaja
-          con cuidado para preservar la pureza del manantial.
+          Desde nuestra planta hasta tu puerta. Cada bidón viaja
+          con el máximo cuidado para preservar la pureza del agua.
         </p>
       </header>
 
@@ -381,7 +390,7 @@
         <!-- Info card (narrow) -->
         <div class="bento__item bento__item--narrow bento__item--info reveal">
           <span class="bento__label">Compromiso</span>
-          <h3 class="bento__title">Del manantial a tu puerta</h3>
+          <h3 class="bento__title">De la planta a tu puerta</h3>
           <p class="bento__desc">
             Nuestra flota de reparto garantiza entregas frescas cada día.
             Cadena de frío y trazabilidad completa en cada bidón.
@@ -422,7 +431,7 @@
       <div class="banner-single reveal">
         <a href="https://wa.me/51983325632?text=Hola%2C%20quisiera%20hacer%20un%20pedido" target="_blank"
           rel="noopener noreferrer" class="banner-single__link" aria-label="Pedir por WhatsApp al +51 983 325 632">
-          <img src="assets/Banner promocional.jpg" alt="Banner promocional Vívara - Pedidos al WhatsApp"
+          <img src="assets/Banner promocional.jpg" alt="Banner promocional Vívara - Pedidos de agua purificada al WhatsApp +51 983 325 632"
             class="banner-single__image" loading="lazy">
           <div class="banner-single__action">
             <span class="banner-single__btn">
@@ -447,8 +456,8 @@
         <p class="cta-final__overline">¿Listo para la pureza?</p>
         <h2 class="cta-final__title">Lleva Vívara a tu hogar</h2>
         <p class="cta-final__desc">
-          Haz tu pedido ahora y recibe agua mineral natural directamente
-          en tu puerta. Sin compromisos, sin procesos artificiales.
+          Haz tu pedido ahora y recibe agua purificada de la más alta calidad
+          directamente en tu puerta. Sin compromisos, pura confianza.
         </p>
         <a href="https://wa.me/51983325632?text=Hola%2C%20quisiera%20hacer%20un%20pedido" target="_blank"
           rel="noopener noreferrer" class="btn-primary btn-primary--glow">
@@ -472,7 +481,7 @@
         <div class="footer__brand">
           <p class="footer__brand-name">Vívara</p>
           <p class="footer__brand-desc">
-            Agua mineral osmotizada y ozonizada. Pureza que se siente, frescura que se vive.
+            Agua purificada de mesa, osmotizada y ozonizada. Pureza que se siente, frescura que se vive.
           </p>
         </div>
 
@@ -485,7 +494,7 @@
 
         <div class="footer__col">
           <h4 class="footer__col-title">Empresa</h4>
-          <a href="#origen" class="footer__link">Nuestro origen</a>
+          <a href="origen.html" class="footer__link">Nuestro origen</a>
           <a href="#logistica" class="footer__link">Distribución</a>
           <a href="https://wa.me/51983325632?text=Hola%2C%20quisiera%20hacer%20un%20pedido" target="_blank"
             rel="noopener noreferrer" class="footer__link">Pedidos WhatsApp (+51 983 325 632)</a>
@@ -493,9 +502,9 @@
 
         <div class="footer__col">
           <h4 class="footer__col-title">Legal</h4>
-          <a href="#" class="footer__link">Términos de uso</a>
-          <a href="#" class="footer__link">Privacidad</a>
-          <a href="#" class="footer__link">Cookies</a>
+          <a href="terminos.html" class="footer__link">Términos de uso</a>
+          <a href="privacidad.html" class="footer__link">Privacidad</a>
+          <a href="cookies.html" class="footer__link">Cookies</a>
         </div>
 
       </div>

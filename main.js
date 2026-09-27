@@ -43,6 +43,8 @@
     navToggle.addEventListener('click', () => {
       const isOpen = navToggle.classList.toggle('is-open');
       navLinks.classList.toggle('is-open');
+      navbar.classList.toggle('navbar--menu-open', isOpen);
+      document.body.classList.toggle('no-scroll', isOpen);
       navToggle.setAttribute('aria-expanded', String(isOpen));
       navToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
     });
@@ -52,6 +54,8 @@
       link.addEventListener('click', () => {
         navToggle.classList.remove('is-open');
         navLinks.classList.remove('is-open');
+        navbar.classList.remove('navbar--menu-open');
+        document.body.classList.remove('no-scroll');
         navToggle.setAttribute('aria-expanded', 'false');
       });
     });
@@ -433,4 +437,106 @@
     });
   });
 
+  /* --------------------------------------------------------
+     10. COOKIE CONSENT BANNER & PREFERENCE MANAGEMENT
+     Compliant with Ley N° 29733 (Perú) & RGPD
+     -------------------------------------------------------- */
+  function initCookieConsent() {
+    const CONSENT_KEY = 'vivara_cookie_consent';
+
+    function showBanner() {
+      if (document.getElementById('cookieBanner')) return;
+
+      const banner = document.createElement('aside');
+      banner.id = 'cookieBanner';
+      banner.className = 'cookie-banner';
+      banner.setAttribute('role', 'dialog');
+      banner.setAttribute('aria-label', 'Gestión de consentimiento de cookies');
+      banner.setAttribute('aria-live', 'polite');
+
+      banner.innerHTML = `
+        <div class="cookie-banner__header">
+          <div class="cookie-banner__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 2a10 10 0 0 0-4 1.8 3 3 0 0 1 .5 3.2 3 3 0 0 1-2.5 1.5 3 3 0 0 1-1.8-.6A10 10 0 0 0 2 12"/>
+              <circle cx="8.5" cy="8.5" r="1" fill="currentColor"/>
+              <circle cx="15.5" cy="8.5" r="1" fill="currentColor"/>
+              <circle cx="15.5" cy="15.5" r="1" fill="currentColor"/>
+              <circle cx="9.5" cy="15.5" r="1" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3 class="cookie-banner__title">Tu privacidad es importante</h3>
+        </div>
+        <p class="cookie-banner__desc">
+          Utilizamos cookies esenciales y analíticas para optimizar tu experiencia y analizar el tráfico conforme a la Ley N° 29733 (Perú). Conoce más en nuestra <a href="cookies.html">Política de Cookies</a>.
+        </p>
+        <div class="cookie-banner__actions">
+          <button type="button" class="cookie-banner__btn cookie-banner__btn--accept" id="btnAcceptCookies">Aceptar todas</button>
+          <button type="button" class="cookie-banner__btn cookie-banner__btn--reject" id="btnRejectCookies">Solo necesarias</button>
+        </div>
+      `;
+
+      document.body.appendChild(banner);
+
+      requestAnimationFrame(() => {
+        banner.classList.add('is-visible');
+      });
+
+      const btnAccept = document.getElementById('btnAcceptCookies');
+      const btnReject = document.getElementById('btnRejectCookies');
+
+      function hideBanner(choice) {
+        try {
+          localStorage.setItem(CONSENT_KEY, choice);
+        } catch (e) {
+          console.warn('LocalStorage not available for cookie consent:', e);
+        }
+        banner.classList.remove('is-visible');
+        setTimeout(() => {
+          banner.remove();
+        }, 450);
+      }
+
+      if (btnAccept) {
+        btnAccept.addEventListener('click', () => hideBanner('all'));
+      }
+      if (btnReject) {
+        btnReject.addEventListener('click', () => hideBanner('essential'));
+      }
+    }
+
+    try {
+      const currentConsent = localStorage.getItem(CONSENT_KEY);
+      if (!currentConsent) {
+        setTimeout(showBanner, 800);
+      }
+    } catch (e) {
+      setTimeout(showBanner, 800);
+    }
+
+    // Reset button on cookies.html
+    const resetBtn = document.getElementById('btnResetCookies');
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        try {
+          localStorage.removeItem(CONSENT_KEY);
+        } catch (e) {}
+        showBanner();
+        resetBtn.textContent = '¡Preferencias restablecidas!';
+        setTimeout(() => {
+          resetBtn.textContent = 'Restablecer Preferencias';
+        }, 2000);
+      });
+    }
+  }
+
+  // Run on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCookieConsent);
+  } else {
+    initCookieConsent();
+  }
+
 })();
+
